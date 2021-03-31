@@ -1,5 +1,4 @@
 # module-8-data-structures
-
 //Default Constructor
 farmingdale::linkedList::linkedList()
 	:
@@ -28,7 +27,6 @@ farmingdale::linkedList::linkedList(const linkedList& copyMe)
 		if (0 == head) {
 			head = temp;
 		}
-		
 		tail = temp;
 		otherLLNode = otherLLNode->next;
 	}//traversal
@@ -137,15 +135,13 @@ farmingdale::statusCode farmingdale::linkedList::removeAtHead(std::string& remov
 	//Step 3: Make head into the current head's next.
 	llNode* current = head;
 	head = head->next;
-
-	//Step 4: if head is null, tail should be null too.
+        //Step 4: if head is null, tail should be null too.
 	if (NULL == head) {
 		tail = NULL;
 	}
 	//Step 5:delete the old head.
 	delete current;
-
-	//Step 6: return success
+        //Step 6: return success
 	return SUCCESS;
 
 } // M7
@@ -186,8 +182,7 @@ farmingdale::llNode* farmingdale::linkedList::search(std::string found) const {
 		else {
 			return current;
 		}//else
-		
-	}//while
+		}//while
 	//If not found, return NULL
 	return NULL;
 }
@@ -211,8 +206,7 @@ farmingdale::statusCode farmingdale::linkedList::removeAtTail(std::string& retur
 		//Step 3.1: otherwise, stitch out the current from the ll.(make TC into 0)
 		else {
 			trailCurrent->next = 0;
-			
-		}
+			}
 		tail = trailCurrent;
 		//Step 4: get the string from current
 		returnedValue = current->data;
@@ -232,8 +226,7 @@ farmingdale::statusCode farmingdale::linkedList::remove(llNode* removeMe) {
 			trailCurrent = current->next;
 			current->next = current->next->next;
 			delete trailCurrent;
-			
-		}
+			}
 		else {
 			current = current->next;
 		}
@@ -254,8 +247,7 @@ farmingdale::statusCode farmingdale::linkedList::remove(llNode* removeMe) {
 		if (tail == current) {
 			tail = trailCurrent;
 		}
-
-	//Step 6: delete current.
+        //Step 6: delete current.
 		delete current;
 	//Step 7: return success
 		return SUCCESS;
@@ -267,14 +259,12 @@ farmingdale::llNode* farmingdale::linkedList::findAtPostion(int nth) const {
 	int count = 0;
 	while (0 != current ) {
 		if (count != nth) {
-			
 			count++;
 		}//if
 		else {
 			return current;
 		}//else
 		current = current->next;
-		
-	}//while
+		}//while
 	return NULL;
 }
